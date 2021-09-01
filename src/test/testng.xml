@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true" name="Login Test1">
+        <classes>
+            <class name="LoginPage"/>
+
+        </classes>
+    </test>
+
+<!--    <test name="Login Test2">-->
+<!--        <classes>-->
+<!--            <class name="LoginTest"/>-->
+<!--        </classes>-->
+
+<!--    </test>-->
+</suite>
+
+
+        <!--<suite name="All Test Suite">-->
+        <!--<test verbose="2" preserve-order="true" name="C:/Users/ilya/IdeaProjects/SwagLabs/src/test/java">-->
+
+        <!--    <classes>-->
+        <!--        <class name ="LoginPage"/>-->
+        <!--        <class name="LoginTest"/>-->
+        <!--    </classes>-->
+        <!--</test>-->
+        <!--</suite>-->
