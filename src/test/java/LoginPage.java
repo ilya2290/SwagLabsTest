@@ -1,68 +1,68 @@
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
+import org.testng.Assert;
 import org.testng.annotations.Test;
-import org.testng.asserts.Assertion;
-import java.util.concurrent.TimeUnit;
+import org.testng.asserts.Assertion; // как посмотреть классы и методы в иде
+
 
 public class LoginPage {
-    Assertion assert1 = new Assertion();  // ОБЪЕКТЫ
-    ChromeDriver driver = new ChromeDriver();
+    WebDriver driver;
 
-                                                    //ЛОГИН И ПАРОЛЬ
-   private String loginValue = "standard_user";
-   private String passwordValue = "secret_sauce";
-
-
-    @BeforeTest
-    public void driverSetup() {
-        System.setProperty("webdriver.chrome.driver", "D:\\IntelliJ IDEA Community Edition 2020.2.1\\Chrome Driver\\chromedriver.exe");
-        driver.manage().window().maximize();
-        driver.get("https://www.saucedemo.com/");
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+    public LoginPage(WebDriver driver) {
+        this.driver = driver;
     }
+    // ОБЪЕКТЫ
+    //  Assertion assert1 = new Assertion();  // ОБЪЕКТЫ
+    //   WebDriverWait waiter = new WebDriverWait(driver, 10);
 
-    @AfterTest
-    public void driverClose() {
-        System.out.println("Test Login Passed");
-        driver.close();
-    }
+    //ЛОГИН ПАРОЛЬ:
+    private String loginValue = "standard_user";
+    private String passwordValue = "secret_sauce";
 
-    @Test
-    public void login() throws InterruptedException {
+    //ЛОКАТОРЫ:
+//    WebElement loginField = driver.findElement(By.xpath("//*[@id=\"user-name\"]"));
+//    WebElement passwordField = driver.findElement(By.xpath("//*[@id=\"password\"]"));
+//    WebElement submitButton = driver.findElement(By.xpath("//*[@id=\"login-button\"]"));
 
-        WebElement loginField = driver.findElement(By.xpath("//*[@id=\"user-name\"]"));
-        String loginValue = "standard_user";
-        loginField.sendKeys(loginValue);
+    //   ЛОКАТОРЫ 2.0
+    private final By loginField1 = By.xpath("//*[@id=\"user-name\"]");
+    private final By passwordField1 = By.xpath("//*[@id=\"password\"]");
+    private final By submitButton1 = By.xpath("//*[@id=\"login-button\"]");
+    private final By headerTittle = By.xpath("//*[@id=\"header_container\"]/div[2]/span");
 
-        WebElement passwordField = driver.findElement(By.xpath("//*[@id=\"password\"]"));
-        String passwordValue = "secret_sauce";
-        passwordField.sendKeys(passwordValue);
-
-        WebElement submitButton = driver.findElement(By.xpath("//*[@id=\"login-button\"]"));
-        String submitButtonName = "Login";
-
-        System.out.println("Attribute is: "+ submitButton.getAttribute("value"));
-
-        submitButton.click();
-
-        Thread.sleep(1000);
-
-    }
-    //WebElement loginField = driver.findElement(By.xpath("//*[@id=\"user-name\"]"));
-
-    public String getLoginName( ){
+    //МЕТОДЫ:
+    public String getLoginName() {
         return loginValue;
     }
-    public void setLoginValue(String loginValue){
-        this.loginValue = loginValue;
+
+    public String getPassword() {
+        return passwordValue;
     }
 
-//    public void enterLoginName(){
-//        loginField.sendKeys(getLoginName());
-//    }
+    public void enterLoginName() {
+        driver.findElement(loginField1)
+                .sendKeys(getLoginName());
+    }
+
+    public void enterPassword() {
+        driver.findElement(passwordField1)
+                .sendKeys(getPassword());
+    }
+
+    public void submitButton() {
+        driver.findElement(submitButton1).click();
+    }
+
+    public void loginIn() {
+        enterLoginName();
+        enterPassword();
+        submitButton();
+        Assertion assertion = new Assertion();
+        String productPageTittle = "PRODUCTS";
+        assertion.assertEquals(productPageTittle,driver.findElement(headerTittle).getText());
+    }
 
 
 }
