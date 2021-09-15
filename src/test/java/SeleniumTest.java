@@ -2,12 +2,16 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
+import org.testng.asserts.Assertion;
 
 import java.util.concurrent.TimeUnit;
 
 public class SeleniumTest {
 
+
+
     WebDriver driver = new ChromeDriver();
+    Assertion assertion = new Assertion();
 
     @BeforeTest
     public void driverSetup()  {

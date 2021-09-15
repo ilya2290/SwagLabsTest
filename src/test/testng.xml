@@ -4,14 +4,23 @@
 <suite name="All Test Suite">
 
 
-    <test name="Test2">
+<!--    <test name="Test2">-->
+
+<!--        <classes>-->
+<!--            <class name="LoginTest"/>-->
+<!--        </classes>-->
+<!--    </test>-->
+
+    <test name="Test3">
 
         <classes>
-            <class name="LoginTest"/>
+            <class name="ProductPageTest"/>
         </classes>
     </test>
 
-<!--    <test name="Test1">-->
+
+
+    <!--    <test name="Test1">-->
 
 <!--        <classes>-->
 <!--            <class name="LoginPage"/>-->
