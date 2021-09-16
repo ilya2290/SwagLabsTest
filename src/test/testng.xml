@@ -3,29 +3,24 @@
 
 <suite name="All Test Suite">
 
-
-<!--    <test name="Test2">-->
-
+<!--<test name="loginTest">-->
+<!--    -->
+<!--    <classes>-->
+<!--        <class name="swagLab.tests.LoginTest"/>-->
+<!--    </classes>-->
+<!--    -->
+<!--</test>-->
+<!--    <test name="PriceSortASC">-->
 <!--        <classes>-->
-<!--            <class name="LoginTest"/>-->
+<!--            <class name="swagLab.tests.ProductPageTest"/>-->
 <!--        </classes>-->
 <!--    </test>-->
 
-    <test name="Test3">
-
+    <test name="emptyTest">
         <classes>
-            <class name="ProductPageTest"/>
+            <class name="swagLab.tests.TestStage"/>
         </classes>
     </test>
-
-
-
-    <!--    <test name="Test1">-->
-
-<!--        <classes>-->
-<!--            <class name="LoginPage"/>-->
-<!--        </classes>-->
-<!--    </test>-->
 
 
 </suite>

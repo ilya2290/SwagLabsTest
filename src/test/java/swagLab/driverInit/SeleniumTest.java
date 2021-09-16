@@ -1,3 +1,5 @@
+package swagLab.driverInit;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterTest;
@@ -8,10 +10,7 @@ import java.util.concurrent.TimeUnit;
 
 public class SeleniumTest {
 
-
-
-    WebDriver driver = new ChromeDriver();
-    Assertion assertion = new Assertion();
+  public   WebDriver driver = new ChromeDriver();
 
     @BeforeTest
     public void driverSetup()  {
@@ -26,7 +25,6 @@ public class SeleniumTest {
 
     @AfterTest
     public void driverClose() {
-        System.out.println("Test Login Passed");
         driver.close();
     }
 }

@@ -10,15 +10,13 @@ repositories {
 }
 
 dependencies {
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.0'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
+
     implementation 'org.seleniumhq.selenium:selenium-java:3.141.59'
     testImplementation 'org.testng:testng:7.4.0'
-    implementation group: 'org.jsoup', name: 'jsoup', version: '1.14.2'
 
 
 }
 
-test {
-    useJUnitPlatform()
-}
+//test {
+//    useJUnitPlatform()
+//}

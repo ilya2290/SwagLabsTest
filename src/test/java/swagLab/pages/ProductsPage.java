@@ -1,3 +1,5 @@
+package swagLab.pages;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -11,7 +13,7 @@ public class ProductsPage {
     //VALUES:
     WebDriver driver; // решить вопрос приватный
 
-    ProductsPage(WebDriver driver) {
+    public ProductsPage(WebDriver driver) {
         this.driver = driver;
     }
 
@@ -24,7 +26,9 @@ public class ProductsPage {
         return s.substring(0, pos) + s.substring(pos + 1);
     }
 
-    //PRIVATE METHODS - Парс товаров с сортировкой по умолчанию
+    /**
+     * This method is used to parse price of each product
+     */
     public List<Double> parseAllPricesDefaultSort() {
 
         List<String> listOfPricesString = new ArrayList<>();
@@ -47,50 +51,43 @@ public class ProductsPage {
         return listOfPricesDouble;
     }
 
-    // Вывод листа с сортировкой по умолчанию ИСПРАВИТь
-    public void getParseCollectionByDef(){
-        List<Double> sortedListASC = new ArrayList<>(parseAllPricesDefaultSort());
-        System.out.println(sortedListASC);
+    /** Вывод листа с сортировкой по умолчанию ИСПРАВИТь
+     */
+    public List <Double> getParseCollectionByDef(){  //Может быть, что всего лишь нужен будет 1 парс и все, потом вот этим гетом забирать цены с любой сортировкой
+        return parseAllPricesDefaultSort();
     }
 
-    // Сортировка полученной коллекции по ASC
-    public List<Double> sortParseCollectionByASC() {
-        List<Double> sortedListASC = new ArrayList<>(parseAllPricesDefaultSort());
+    /** GET полученной коллекции ПРОГРАММНЫМ путем по ASC */ //Коллекция отсортирована ПРОГРАММНО ПО ВОЗРАСТАНИЮ, мб достаточно 1 ГЕТТЕРА, убрать метод ПРОСТО ОТСОРТИРОВАТЬ а сделать ГЕТТЕР
+    public List<Double> getParseCollectionByASC() {
+        List <Double> sortedListASC = new ArrayList<>(getParseCollectionByDef());
         Collections.sort(sortedListASC);
-        System.out.println(sortedListASC);
         return sortedListASC;
     }
 
-    // Сортировка полученной коллекции по ASC ГЕТТЕР
-    public List<Double> getSortParseCollectionByASC(){
-        return sortParseCollectionByASC();
-    }
 
-
-    // Сортировка полученной коллекции по DESC НАПИСАТЬ ГЕТТЕР ИЛИ ПЕРВЫЙ УДАЛИТЬ ГДЕ АСК
-    public List <Double> sortParseCollectionDESC() {
-        List<Double> sortedListDESC = new ArrayList<>(parseAllPricesDefaultSort());
+    /** GET полученной коллекции ПРОГРАММНЫМ путем по DESC */
+    public List <Double> getParseCollectionByDESC() {
+        List<Double> sortedListDESC = new ArrayList<>(getParseCollectionByDef());
         Collections.sort(sortedListDESC);
         Collections.reverse(sortedListDESC);
-        System.out.println(sortedListDESC);
         return sortedListDESC;
     }
 
-    // Сортировка товаров по фронту ASC
+    /** Method is used to set Price sort - "low to high" by Driver*/
     public void sortByPriceASC() throws InterruptedException {
         Select select = new Select(driver.findElement(filterButton));
         select.selectByValue("lohi");
         Thread.sleep(3000);
     }
 
-    // Сортировка товаров по фронту DESC
+    /** Method is used to set Price sort - "high to low" by Driver*/
     public void sortByPriceDESC() throws InterruptedException {
         Select select = new Select(driver.findElement(filterButton));
         select.selectByValue("hilo");
         Thread.sleep(3000);
     }
 
-    //ПАРС ЦЕН ПОСЛЕ СОРТИРОВКИ НА ФРОНТЕ ASC (с участием клацанья по фронту)
+    //ПАРС ЦЕН ПОСЛЕ СОРТИРОВКИ НА ФРОНТЕ ASC (с участием клацанья по фронту) // мб это не надо, просто надо использовать стандартный парс после переключения и все
     public List<Double> parsePricesAfterSortASC() throws InterruptedException {
         sortByPriceASC();
 
