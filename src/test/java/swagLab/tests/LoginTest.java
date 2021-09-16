@@ -6,11 +6,10 @@ import swagLab.pages.LoginPage;
 
 public class LoginTest extends SeleniumTest {
 
-    @Test(groups = {})
-    public void loginTest() throws InterruptedException {
+    @Test(groups = "regression")
+    public void loginTest() {
         LoginPage loginPage = new LoginPage(driver);
         loginPage.loginIn();
-        Thread.sleep(2000);
     }
 }
 

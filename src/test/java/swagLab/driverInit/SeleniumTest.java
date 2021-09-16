@@ -5,12 +5,12 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.asserts.Assertion;
-
 import java.util.concurrent.TimeUnit;
 
 public class SeleniumTest {
 
-  public   WebDriver driver = new ChromeDriver();
+    public WebDriver driver = new ChromeDriver();
+    public Assertion assertion = new Assertion();
 
     @BeforeTest
     public void driverSetup()  {
@@ -24,7 +24,7 @@ public class SeleniumTest {
     }
 
     @AfterTest
-    public void driverClose() {
+    public void driverClose()  {
         driver.close();
     }
 }
