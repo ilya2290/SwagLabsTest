@@ -3,42 +3,28 @@
 
 <suite name="All Test Suite">
 
-<!--    <test name="FilterTest">-->
-<!--        <groups>-->
-<!--            <run>-->
-<!--                <include name="filterTest"/>-->
-<!--                <include name="regression"/>-->
 
-<!--            </run>-->
-<!--        </groups>-->
-
-<!--        <classes>-->
-<!--            <class name="swagLab.tests.PriceTestByASC"/>-->
-<!--            <class name="swagLab.tests.LoginTest"/>-->
-<!--        </classes>-->
-<!--    </test>-->
+        <test name="priceSortByASC">
+            <classes>
+                <class name="swagLab.tests.PriceTestByASC"/>
+            </classes>
+        </test>
 
 
-<!--        <test name="testPriceSortByASC">-->
-<!--            <classes>-->
-<!--                <class name="swagLab.tests.PriceTestByASC"/>-->
-<!--            </classes>-->
-<!--        </test>-->
+    <test name="priceSortByDESC">
+        <classes>
+            <class name="swagLab.tests.PriceTestByDESC"/>
+        </classes>
+    </test>
 
 
-<!--    <test name="testPriceSortByDESC">-->
-<!--        <classes>-->
-<!--            <class name="swagLab.tests.PriceTestByDESC"/>-->
-<!--        </classes>-->
-<!--    </test>-->
+    <test name="loginTest">
+        <classes>
+            <class name="swagLab.tests.LoginTest"/>
+        </classes>
+    </test>
 
 
-<!--    <test name="loginTest">-->
-<!--        <classes>-->
-<!--            <class name="swagLab.tests.LoginTest"/>-->
-<!--        </classes>-->
-<!--    </test>-->
-    
     <test name="addToCartTest">
         <classes>
             <class name="swagLab.tests.BasketTest"/>

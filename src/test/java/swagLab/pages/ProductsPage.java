@@ -20,7 +20,7 @@ public class ProductsPage {
      */
     private final By filterButton = By.xpath("//*[@id=\"header_container\"]/div[2]/div[2]/span/select");
     private final By addToCartButton = By.xpath("//*[@id=\"add-to-cart-sauce-labs-onesie\"]"); //SAUSE
-    private final By itemFirst = By.xpath("//*[@id=\"inventory_container\"]/div/div[1]");
+    private final By productOnesie = By.xpath("//*[@id=\"inventory_container\"]/div/div[5]");
     private final By cartIcon = By.xpath("//*[@id=\"shopping_cart_container\"]/a"); //
 
 
@@ -120,13 +120,57 @@ public class ProductsPage {
     }
 
 
-    public void addToCartBtnClick(){
+    /**
+     * Method is used to get tittle of the product. Return String.
+     */
+    public String getProductTittle() {
+        String productTittle;
+        assert driver != null;
+        productTittle = driver.findElement(productOnesie)
+                .findElement(By.className("inventory_item_name"))
+                .getText();
+        return productTittle;
+    }
+
+    /**
+     * Method is used to get description of the product. Return String.
+     */
+    public String getProductDescription() {
+        String productDescription;
+        assert driver != null;
+        productDescription = driver.findElement(productOnesie)
+                .findElement(By.className("inventory_item_desc"))
+                .getText();
+        return productDescription;
+    }
+
+
+    /**
+     * Method is used to get price of the product. Return String.
+     */
+    public String getProductPrice() {
+        String productPrice;
+        assert driver != null;
+        productPrice = driver.findElement(productOnesie)
+                .findElement(By.className("inventory_item_price"))
+                .getText();
+        return productPrice;
+    }
+
+
+    /**
+     * Method is used to add product to cart via "Add to Cart" button. Return void.
+     */
+    public void addToCartProduct() {
         driver.findElement(addToCartButton)
                 .click();
     }
 
 
-    public void openCartPage(){
+    /**
+     * Method is used to open Cart page by clicking on cart icon. Return void.
+     */
+    public void openCartPage() {
         driver.findElement(cartIcon).click();
     }
 
