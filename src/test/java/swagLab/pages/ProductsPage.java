@@ -130,5 +130,4 @@ public class ProductsPage {
         driver.findElement(cartIcon).click();
     }
 
-   //Кнопка = товар
 }

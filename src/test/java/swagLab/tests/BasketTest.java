@@ -14,8 +14,6 @@ public class BasketTest extends SeleniumTest {
         loginPage.loginIn();
         productsPage.addToCartBtnClick();
         productsPage.openCartPage();
-        Thread.sleep(12000);
-
 
     }
 }
