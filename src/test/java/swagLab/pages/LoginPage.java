@@ -31,7 +31,7 @@ public class LoginPage {
     /**
      * Method is used to get Login name. Return String.
      **/
-    public String getLoginName() {
+    private String getLoginName() {
         return loginValue;
     }
 
@@ -39,7 +39,7 @@ public class LoginPage {
     /**
      * Method is used to get Password. Return String.
      **/
-    public String getPassword() {
+    private String getPassword() {
         return passwordValue;
     }
 

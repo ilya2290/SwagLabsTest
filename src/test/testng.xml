@@ -33,9 +33,15 @@
 <!--    </test>-->
 
 
-    <test name="loginTest">
+<!--    <test name="loginTest">-->
+<!--        <classes>-->
+<!--            <class name="swagLab.tests.LoginTest"/>-->
+<!--        </classes>-->
+<!--    </test>-->
+    
+    <test name="addToCartTest">
         <classes>
-            <class name="swagLab.tests.LoginTest"/>
+            <class name="swagLab.tests.BasketTest"/>
         </classes>
     </test>
 

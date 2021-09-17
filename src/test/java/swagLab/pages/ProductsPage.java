@@ -19,6 +19,9 @@ public class ProductsPage {
      * Locators
      */
     private final By filterButton = By.xpath("//*[@id=\"header_container\"]/div[2]/div[2]/span/select");
+    private final By addToCartButton = By.xpath("//*[@id=\"add-to-cart-sauce-labs-onesie\"]"); //SAUSE
+    private final By itemFirst = By.xpath("//*[@id=\"inventory_container\"]/div/div[1]");
+    private final By cartIcon = By.xpath("//*[@id=\"shopping_cart_container\"]/a"); //
 
 
     /**
@@ -115,4 +118,17 @@ public class ProductsPage {
         sortPriceByDESC();
         return getAllParsedPrices();
     }
+
+
+    public void addToCartBtnClick(){
+        driver.findElement(addToCartButton)
+                .click();
+    }
+
+
+    public void openCartPage(){
+        driver.findElement(cartIcon).click();
+    }
+
+   //Кнопка = товар
 }
